@@ -86,7 +86,9 @@ class Song(models.Model):
             old_dir = os.getcwd()
             os.chdir(dir_path)
 
-            lily_content = sh.musicxml2ly("--nd", "--nrp", "--npl", "--no-beaming", "-l", "french", "-m", "-", "-o", "-", _in=output.getvalue())
+            #lily_content = sh.musicxml2ly("--nd", "--nrp", "--npl", "--no-beaming", "-l", "french", "-m", "-o", "-", "-", _in=output.getvalue().decode("UTF8"))
+            lily_content = sh.musicxml2ly("-l", "french", "-m", "-o", "-", "-", _in=output.getvalue().decode("UTF8"))
+            print(lily_content)
 
             sh.lilypond("-o", os.path.join(dir_path, "output"), "-", _in=str(lily_content))
 
