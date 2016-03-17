@@ -10,3 +10,4 @@ dj_database_url==0.3.0
 dj_static==0.0.6
 dropbox==3.34
 lxml==3.4.4
+music21=2.2.1
